@@ -50,4 +50,5 @@ JsParseModuleSource
 JsModuleEvaluation
 JsSetModuleHostInfo
 JsGetModuleHostInfo
+JsGetModuleSpecifier
 JsInitializeJITServer
