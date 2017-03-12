@@ -163,6 +163,19 @@ JsGetModuleHostInfo(
     _In_ JsModuleHostInfoKind moduleHostInfo,
     _Outptr_result_maybenull_ void** hostInfo);
 
+/// <summary>
+///     Retrieve the specifier of the given module.
+/// </summary>
+/// <param name="requestModule">The module to retrive the specifier from.</param>
+/// <param name="specifier">The specifier to be retrieved.</param>
+/// <returns>
+///     The code <c>JsNoError</c> if the operation succeeded, a failure code otherwise.
+/// </returns>
+CHAKRA_API
+JsGetModuleSpecifier(
+	_In_ JsModuleRecord requestModule,
+	_Outptr_result_maybenull_ JsValueRef* specifier);
+
 #ifndef NTBUILD
 /// <summary>
 ///     Called by the runtime to load the source code of the serialized script.

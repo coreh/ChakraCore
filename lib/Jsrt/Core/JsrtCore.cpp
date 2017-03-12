@@ -213,3 +213,17 @@ JsGetModuleHostInfo(
     });
     return errorCode;
 }
+
+CHAKRA_API
+JsGetModuleSpecifier(
+	_In_ JsModuleRecord requestModule,
+	_Outptr_result_maybenull_ JsValueRef* specifier)
+{
+	if (!Js::SourceTextModuleRecord::Is(requestModule) || (specifier == nullptr))
+	{
+		return JsErrorInvalidArgument;
+	}
+	Js::SourceTextModuleRecord* moduleRecord = Js::SourceTextModuleRecord::FromHost(requestModule);
+	*specifier = moduleRecord->GetSpecifier();
+	return JsNoError;
+}
